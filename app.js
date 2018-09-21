@@ -19,20 +19,10 @@ app.controller('appController', function($scope, $http, $location, ) {
 
 
   }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
+    alert('essayer une autre méthode celle ci ne marche pas');
+
   });
 
-  // $scope.dossierCourant = null;
-  // $scope.selectionDossier = function(dossier) {
-  //   $scope.dossierCourant = dossier;
-  //
-  // }
-  // $scope.$watch = (function() {
-  //   return $location.path()
-  // }, function(newPath) {
-  //   var tabPath = newPath
-  // });
-  //
+
 
 });
