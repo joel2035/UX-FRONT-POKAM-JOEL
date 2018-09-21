@@ -2,7 +2,7 @@ var app = angular.module("myApp", []);
 app.controller('appController', function($scope, $http, $location, ) {
   $http({
     method: 'GET',
-    url: 'http://www-uat.tictactrip.eu/api/cities/autocomplete/?q=P'
+    url: 'http://www-uat.tictactrip.eu/api/cities/popular/5'
 
   }).then(function successCallback(response) {
     $scope.dossiers = response.data;
@@ -16,7 +16,8 @@ app.controller('appController', function($scope, $http, $location, ) {
     $scope.$watch('citie', function(citie) {
       $location.search(citieKey, citie);
     });
-
+    $scope.champTri = "unique_name";
+    $scope.dossierCourant = null;
 
   }, function errorCallback(response) {
     alert('essayer une autre méthode celle ci ne marche pas');

@@ -10,7 +10,7 @@
   <title>bootstrap template</title>
   <style media="screen">
     body {
-      background-image: url('./vacance_img.jpg');
+      background-image: url('./vague_plage.jpg');
       background-repeat: no-repeat;
      background-size: cover;
       margin: 0;
@@ -136,9 +136,12 @@ En France et en Europe.</h1>
           </div>
           <div class="col-md-6">
             <div class="seach-form">
+              <div class="seach-title">
+                <p class="seach-text">Choisissez une gare de départ</p>
+              </div>
               <table class="table table-hover table-bordered">
                 <tbody>
-                  <tr class="hover" ng-repeat="dossier in dossiers">
+                  <tr ng-class="{hover: dossierCourant == unique_name }" ng-repeat="dossier in dossiers | orderBy: champTri">
                     <td><span class="glyphicon glyphicon-map-marker"></span>
                       {{dossier.unique_name}}
                     </td>
