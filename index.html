@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  <title>bootstrap template</title>
+  <style media="screen">
+    body {
+      background-image: url('./fiches.jpg');
+      background-repeat: no-repeat;
+     background-size: cover;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+    }
+
+    .content {
+      width: 80%;
+      margin: 0 auto;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .seach-form {
+      position: relative;
+      font-family: 'Source Sans Pro', "Helvetica Neue", Helvetica,  sans-serif;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 458px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      height: 460px;
+      color: #323e42;
+      line-height: 17.25px;
+      font-size: 15px;
+      text-align: start;
+      letter-spacing: normal;
+      border-radius: 4.6875px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+      margin: 0 auto;
+    }
+    .form-control{
+    width: 376px;
+    line-height: 20px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    height: 42px;
+    border-radius: 4.6875px;
+    opacity: 1;
+    background-color: #FFF;
+    padding-left: 40px;
+    margin: 0 auto;
+    font-size: 100%;
+    align-items: center;
+    }
+    .form-control-depart{
+      background-image: url('https://assets.trainline.eu/assets/images/from-793fd74a5d09b687beb849fab15ae7a6.svg');
+      background-repeat: no-repeat;
+      background-position: 11px center;
+      background-size: auto;
+
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    }
+
+    .form-control-arrivez{
+    background-image:  url('https://assets.trainline.eu/assets/images/to-3c0a8d746fa1464b9bd1f7be13b6b127.svg');
+      background-repeat: no-repeat;
+      background-position: 11px center;
+      background-size: auto;
+
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+
+    }
+
+
+    .form-control:focus{
+      border-color: #01c3a7;
+
+    }
+    td{
+      text-align: left;
+    }
+    .container{
+      overflow: hidden;
+    }
+    .seach-text{
+      color: #323e42;
+      font-size: 20px;
+      background: #ffffff;
+      line-height: 23px;
+
+    }
+    .table{
+
+    }
+    .hover{
+      opacity: 0.5;
+      }
+      .hover:hover{
+        opacity: 1;
+      }
+  </style>
+</head>
+
+<body ng-app="myApp" ng-controller="appController">
+  <div class="container">
+    <div class="row">
+      <div class="content">
+        <div class="col-md-12">
+          <h1>Réservez vos billets de train et de bus.
+En France et en Europe.</h1>
+          <p>Voyagez avec Trainline, leader indépendant de la vente de billets de train et de bus en Europe.</p>
+        </div>
+        <div class="content-seach">
+          <div class="col-md-6">
+            <div class="seach-form">
+              <div class="seach-title">
+                <p class="seach-text">Quel est votre trajet ?</p>
+              </div>
+              <form class="form">
+                <div class="seach-input form-group">
+
+                  <input ng-model = "citie"
+                class="form-control form-control-depart" type="text" name="ville" value="" placeholder="Saisissez votre gare de départ…" autocomplete="off" tabindex="1" spellcheck="false" required="">
+                  <input class="form-control form-control-arrivez" type="text" name="" value=""  placeholder="Saisissez votre gare d'arrivez..."  autocomplete="off" tabindex="1" spellcheck="false" required="">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="seach-form">
+              <table class="table table-hover table-bordered">
+                <tbody>
+                  <tr class="hover" ng-repeat="dossier in dossiers">
+                    <td><span class="glyphicon glyphicon-map-marker"></span>
+                      {{dossier.unique_name}}
+                    </td>
+
+                  </tr>
+                  <tr>
+
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="app.js"> </script>
+  <script src="refactory.js"></script>
+  <script src="country.js"></script>
+
+
+</body>
+
+</html>
