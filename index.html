@@ -63,9 +63,8 @@
       background-repeat: no-repeat;
       background-position: 11px center;
       background-size: auto;
-
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
 
     .form-control-arrivez{
@@ -73,7 +72,6 @@
       background-repeat: no-repeat;
       background-position: 11px center;
       background-size: auto;
-
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
 
@@ -81,7 +79,7 @@
 
 
     .form-control:focus{
-      border-color: #01c3a7;
+      border-color: #01B99E;
 
     }
     td{
@@ -109,7 +107,7 @@
   </style>
 </head>
 
-<body ng-app="myApp" ng-controller="appController">
+<body ng-app="myApp" ng-controller="appController" ng-controller="myController">
   <div class="container">
     <div class="row">
       <div class="content">
@@ -127,7 +125,7 @@ En France et en Europe.</h1>
               <form class="form">
                 <div class="seach-input form-group">
 
-                  <input ng-model = "citie"
+                  <input ng-model = "citie" ng-click= "razRecherche()"
                 class="form-control form-control-depart" type="text" name="ville" value="" placeholder="Saisissez votre gare de départ…" autocomplete="off" tabindex="1" spellcheck="false" required="">
                   <input class="form-control form-control-arrivez" type="text" name="" value=""  placeholder="Saisissez votre gare d'arrivez..."  autocomplete="off" tabindex="1" spellcheck="false" required="">
                 </div>
@@ -141,8 +139,8 @@ En France et en Europe.</h1>
               </div>
               <table class="table table-hover table-bordered">
                 <tbody>
-                  <tr ng-class="{hover: dossierCourant == unique_name }" ng-repeat="dossier in dossiers | orderBy: champTri">
-                    <td><span class="glyphicon glyphicon-map-marker"></span>
+                  <tr ng-class="{hover:  dossierCourant == unique_name }" ng-repeat="dossier in villeFiltre = (dossiers| filter:citie)">
+                    <td ng-show="dossier.popular" ng-model="ville.unique_name"><span class="glyphicon glyphicon-map-marker"></span>
                       {{dossier.unique_name}}
                     </td>
 
@@ -166,9 +164,9 @@ En France et en Europe.</h1>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
   <script src="app.js"> </script>
   <script src="refactory.js"></script>
-  <script src="country.js"></script>
 
 
 </body>
