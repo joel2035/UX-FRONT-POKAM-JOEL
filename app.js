@@ -1,6 +1,6 @@
 var app = angular.module("myApp", []);
 
-app.controller('appController', function($scope, $http, $location, $filter, ) {
+app.controller('appController', function($scope, $http, $location, $filter) {
   $http({
 
     method: 'GET',

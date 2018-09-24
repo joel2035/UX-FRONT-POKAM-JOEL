@@ -104,6 +104,9 @@
       .hover:hover{
         opacity: 1;
       }
+      .cache{
+        display: none;
+      }
   </style>
 </head>
 
@@ -125,7 +128,7 @@ En France et en Europe.</h1>
               <form class="form">
                 <div class="seach-input form-group">
 
-                  <input ng-model = "citie" ng-click= "razRecherche()"
+                  <input  ng-model = "citie" ng-click= "razRecherche()"
                 class="form-control form-control-depart" type="text" name="ville" value="" placeholder="Saisissez votre gare de départ…" autocomplete="off" tabindex="1" spellcheck="false" required="">
                   <input class="form-control form-control-arrivez" type="text" name="" value=""  placeholder="Saisissez votre gare d'arrivez..."  autocomplete="off" tabindex="1" spellcheck="false" required="">
                 </div>
@@ -140,7 +143,10 @@ En France et en Europe.</h1>
               <table class="table table-hover table-bordered">
                 <tbody>
                   <tr ng-class="{hover:  dossierCourant == unique_name }" ng-repeat="dossier in villeFiltre = (dossiers| filter:citie)">
-                    <td ng-show="dossier.popular" ng-model="ville.unique_name"><span class="glyphicon glyphicon-map-marker"></span>
+                    <td class="vue" ng-show="dossier.popular"><span class="glyphicon glyphicon-map-marker"></span>
+                      {{dossier.unique_name}}
+                    </td>
+                    <td class="cache"><span class="glyphicon glyphicon-map-marker"></span>
                       {{dossier.unique_name}}
                     </td>
 
@@ -167,7 +173,18 @@ En France et en Europe.</h1>
 
   <script src="app.js"> </script>
   <script src="refactory.js"></script>
-
+  <script>
+    $(function() {
+      $(".form-control").keyup(function() {
+        $('.cache').show();
+        $('.vue').hide();
+      });
+      $(".form-control").focusout(function() {
+        $('.cache').hide();
+        $('.vue').show();
+      })
+    })
+  </script>
 
 </body>
 
