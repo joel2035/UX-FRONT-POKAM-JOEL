@@ -142,18 +142,28 @@ En France et en Europe.</h1>
               </div>
               <table class="table table-hover table-bordered">
                 <tbody>
-                  <tr ng-class="{hover:  dossierCourant == unique_name }" ng-repeat="dossier in villeFiltre = (dossiers| filter:citie)">
+                  <tr ng-class="{hover: dossierCourant == unique_name }" ng-repeat="dossier in villeFiltre = (ville| filter:citie )">
                     <td class="vue" ng-show="dossier.popular"><span class="glyphicon glyphicon-map-marker"></span>
                       {{dossier.unique_name}}
                     </td>
+
+
+                  </tr>
+
+                  <tr ng-class="{hover: dossierCourant == unique_name }" ng-repeat="dossier in villeFiltre = (ville| filter:citie )">
                     <td class="cache"><span class="glyphicon glyphicon-map-marker"></span>
                       {{dossier.unique_name}}
+
                     </td>
 
                   </tr>
-                  <tr>
+                  <tr ng-class="{hover: dossierCourant == unique_name }" ng-repeat="dossier in villeFiltre = (ville| filter:citie )">
+                    <td class="cache"><span class="glyphicon glyphicon-map-marker"></span>
+                      {{dossier.local_name}}
+                    </td>
 
                   </tr>
+
 
                 </tbody>
               </table>
@@ -183,6 +193,7 @@ En France et en Europe.</h1>
         $('.cache').hide();
         $('.vue').show();
       })
+
     })
   </script>
 

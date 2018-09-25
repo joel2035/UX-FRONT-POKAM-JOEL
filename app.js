@@ -4,11 +4,12 @@ app.controller('appController', function($scope, $http, $location, $filter) {
   $http({
 
     method: 'GET',
-    url: 'http://www-uat.tictactrip.eu/api/cities/popular/5'
+    url: 'http://www-uat.tictactrip.eu/api/cities/autocomplete/?q=P'
 
   }).then(function successCallback(response) {
     $scope.dossiers = response.data;
     // ajouter la saisir les mots saisir dans l'input à l'url
+    var ville = angular.extend({}, $scope.dossiers, $scope.values);
     var citieKey = "q";
     $scope.$watch(function() {
       return $location.search();
@@ -20,7 +21,7 @@ app.controller('appController', function($scope, $http, $location, $filter) {
       $location.search(citieKey, citie);
     });
     $scope.champTri = "unique_name";
-    $scope.dossierCourant = null;
+    $scope.dossierCourant < 1;
     // pour vider le champ de recherche au moment du click
 
     $scope.razRecherche = function() {
@@ -31,17 +32,22 @@ app.controller('appController', function($scope, $http, $location, $filter) {
 
     $http({
       method: 'GET',
-      url: 'http://www-uat.tictactrip.eu/api/cities/autocomplete/?q=P'
+      url: 'http://www-uat.tictactrip.eu/api/cities/popular/5'
     }).then(function successCallback(response) {
       $scope.values = response.data;
+
+      var ville = $scope.dossiers.flatMap(function(x, y) {
+        return [x, $scope.values[y]]
+      })
+      $scope.ville = ville
+
+      console.log($scope.ville);
       // ajouter la saisir les mots saisir dans l'input à l'url
-      var ville = angular.merge($scope.dossiers, $scope.values);
-
-
+      // $scope.ville = $scope.dossiers.concat($scope.values);
       // $scope.citie = "";
       // $scope.filterDossier = function() {
       //   return $scope.dossiers.filter(function(item) {
-      //     return (item.unique_name.toString().indexOf($scope.citie) > -1)
+      //     return (item.local_name.toString().indexOf($scope.citie) > -1)
       //   });
       // };
 
@@ -55,6 +61,4 @@ app.controller('appController', function($scope, $http, $location, $filter) {
     alert('essayer une autre méthode celle ci ne marche pas');
 
   });
-
-
 });
