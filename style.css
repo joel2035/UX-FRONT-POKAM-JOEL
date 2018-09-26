@@ -1,0 +1,99 @@
+body {
+  background-image: url('./vague_plage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.search-form {
+  position: relative;
+  font-family: 'Source Sans Pro', "Helvetica Neue", Helvetica, sans-serif;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 458px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  height: 460px;
+  color: #323e42;
+  line-height: 17.25px;
+  font-size: 15px;
+  text-align: start;
+  letter-spacing: normal;
+  border-radius: 4.6875px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin: 0 auto;
+}
+
+.form-control {
+  width: 376px;
+  line-height: 20px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  height: 42px;
+  border-radius: 4.6875px;
+  opacity: 1;
+  background-color: #FFF;
+  padding-left: 40px;
+  margin: 0 auto;
+  font-size: 100%;
+  align-items: center;
+}
+
+.form-control-depart {
+  background-image: url('https://assets.trainline.eu/assets/images/from-793fd74a5d09b687beb849fab15ae7a6.svg');
+  background-repeat: no-repeat;
+  background-position: 11px center;
+  background-size: auto;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.form-control-arrivez {
+  background-image: url('https://assets.trainline.eu/assets/images/to-3c0a8d746fa1464b9bd1f7be13b6b127.svg');
+  background-repeat: no-repeat;
+  background-position: 11px center;
+  background-size: auto;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.form-control:focus {
+  border-color: #01B99E;
+}
+
+td {
+  text-align: left;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.search-text {
+  color: #323e42;
+  font-size: 20px;
+  background: #ffffff;
+  line-height: 23px;
+}
+
+.hover {
+  opacity: 0.5;
+}
+
+.hover:hover {
+  opacity: 1;
+}
+
+.cache {
+  display: none;
+}
